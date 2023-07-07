@@ -1,0 +1,23 @@
+<h1>Currency RUB <button class="add-currency" (click)="addCurrency()">+</button></h1>
+
+<div class="current-date"> Current Date: {{ currentDate }} </div> <div class="current-time">Current Time: {{ currentTime }} </div>
+
+<div *ngFor="let currency of currencies" class="currency-container">
+  <h3>{{ currency.code }}</h3>
+  <div class="rate-container">
+    <span class="rate">{{ (1 / currency.rate) | number: '1.6' }}
+    <span class="diff" [ngClass]="{'positive': currency.diff && currency.diff > 0, 'negative': currency.diff && currency.diff < 0}">
+      <span *ngIf="currency.diff && currency.diff > 0">&#9650;</span>
+      <span *ngIf="currency.diff && currency.diff < 0">&#9660;</span>
+      ({{ currency.diff ? (currency.diff | number: '1.6') : '0.0' }})
+    </span>
+      </span>
+  </div>
+</div>
+
+<div *ngIf="showSelect">
+  <select [(ngModel)]="selectedCurrency" (ngModelChange)="addCurrency()">
+    <option value="">-- Select Currency --</option>
+    <option *ngFor="let currency of dropdownCurrencies" [value]="currency">{{ currency }}</option>
+  </select>
+</div>
