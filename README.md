@@ -1,3 +1,6 @@
+Обратите внимание, что для работоспособности приложения необходимо предоставить ему рабочий API-ключ, который находится в src/app/services/currency.service.ts (в данный момент там уже стоит ключ, но у него закончились запросы)
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
 
 ## Development server
